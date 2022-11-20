@@ -9,7 +9,6 @@ module.exports = {
   Category,
   Product,
   Role,
-  User,
   Invoice,
-  Uuser,
+  User,
 }

@@ -1,9 +1,22 @@
 const { Schema, model } = require('mongoose')
+const { DateTime } = require('luxon')
 
 const UserSchema = Schema({
   name: {
     type: String,
     required: [true, 'El nombre es obligatorio'],
+  },
+  lastName: {
+    type: String,
+    required: [true, 'El apellido es obligatorio'],
+  },
+  typeId: {
+    type: String,
+    required: [true, 'El tipo de identificación es obligatorio'],
+  },
+  id: {
+    type: String,
+    required: [true, 'La identificación es obligatoria'],
   },
   email: {
     type: String,
@@ -17,19 +30,22 @@ const UserSchema = Schema({
   img: {
     type: String,
   },
+  address: {
+    type: String,
+    required: [true, 'La dirección es obligatoria'],
+  },
   role: {
     type: String,
     required: [true, 'El rol es obligatorio'],
-    default: 'USER_ROLE',
-    // enum: ['ADMIN_ROLE', 'USER_ROLE'],
+    default: 'CLIENT_USER',
   },
   status: {
     type: Boolean,
     default: true,
   },
-  google: {
-    type: Boolean,
-    default: false,
+  createdAt: {
+    type: Date,
+    required: true,
   },
 })
 
@@ -39,4 +55,4 @@ UserSchema.methods.toJSON = function () {
   return user
 }
 
-module.exports = model('User', UserSchema)
+module.exports = model('Uuser', UuserSchema)
